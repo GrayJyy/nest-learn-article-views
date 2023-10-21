@@ -1,9 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { RedisService } from './redis.service';
 import { RedisController } from './redis.controller';
 import { ConfigService } from '@nestjs/config';
 import { createClient } from 'redis';
 
+@Global()
 @Module({
   controllers: [RedisController],
   providers: [
