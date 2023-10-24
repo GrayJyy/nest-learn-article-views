@@ -9,9 +9,12 @@ import { UserModule } from './user/user.module';
 import { ArticleModule } from './article/article.module';
 import { User } from './user/entities/user.entity';
 import { Article } from './article/entities/article.entity';
+import { ScheduleModule } from '@nestjs/schedule';
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
@@ -34,6 +37,7 @@ import { Article } from './article/entities/article.entity';
     RedisModule,
     UserModule,
     ArticleModule,
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

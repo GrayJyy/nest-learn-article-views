@@ -29,4 +29,8 @@ export class RedisService {
       await this.redisClient.expire(key, ttl);
     }
   }
+
+  async keys(pattern: string) {
+    return await this.redisClient.keys(pattern);
+  }
 }
